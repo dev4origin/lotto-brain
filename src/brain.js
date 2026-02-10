@@ -1,9 +1,30 @@
+import { analyzeCycles } from './advanced-analyzer.js';
+import { extractNumbers, strategies } from './backtester.js';
 import supabase from './supabase-client.js';
 
-// ... (imports remain)
-
 // Default State
-// ... (defaultBrain remains)
+const defaultBrain = {
+  version: 1,
+  lastTuned: null,
+  weights: {
+    hot: 0.15,
+    due: 0.15,
+    correlation: 0.15,
+    position: 0.10,
+    balanced: 0.10,
+    statistical: 0.20,
+    finales: 0.10,
+    lstm: 0.15
+  },
+  stats: {
+    totalDraws: 0,
+    totalHits: 0,
+    globalAccuracy: 0,
+    byType: {}
+  },
+  history: [],
+  lastAnalyzedDraw: [] 
+};
 
 // In-memory cache
 let brainCache = {
