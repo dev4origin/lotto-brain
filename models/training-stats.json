@@ -1,0 +1,20 @@
+{
+  "trainedAt": "2026-02-10T01:27:51.197Z",
+  "drawTypeId": null,
+  "totalDraws": 1000,
+  "sequencesUsed": 980,
+  "finalLoss": 0.19679121673107147,
+  "finalAccuracy": 0.9444020390510559,
+  "config": {
+    "sequenceLength": 20,
+    "lstmUnits": 64,
+    "denseUnits": 128,
+    "dropout": 0.2,
+    "epochs": 50,
+    "batchSize": 32,
+    "validationSplit": 0.2,
+    "learningRate": 0.001,
+    "maxNumber": 90,
+    "numbersPerDraw": 5
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "lotto-patterns",
+  "version": "1.0.0",
+  "description": "Analyse des patterns du Lotto Ivoirien (Lotobonheur.ci)",
+  "type": "module",
+  "scripts": {
+    "scrape": "node src/scraper.js",
+    "scrape:quick": "node src/scraper.js --quick",
+    "scrape:full": "node src/scraper.js",
+    "analyze": "node src/analyzer.js",
+    "analyze:advanced": "node src/advanced-analyzer.js",
+    "predict": "node src/predictor.js",
+    "predict:enhanced": "node src/enhanced-predictor.js",
+    "backtest": "node src/backtester.js",
+    "train-lstm": "node src/lstm-predictor.js train",
+    "predict-lstm": "node src/lstm-predictor.js predict",
+    "setup-db": "node src/setup-database.js",
+    "serve": "node src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "@tensorflow/tfjs": "^4.22.0",
+    "@tensorflow/tfjs-node": "^4.22.0",
+    "dotenv": "^16.3.1",
+    "node-fetch": "^3.3.2"
+  },
+  "keywords": [
+    "lotto",
+    "lottery",
+    "patterns",
+    "analysis",
+    "cote-divoire"
+  ],
+  "author": "",
+  "license": "ISC"
+}

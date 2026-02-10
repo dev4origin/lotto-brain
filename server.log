@@ -1,0 +1,94 @@
+
+> lotto-patterns@1.0.0 start
+> node src/server.js
+
+🔄 Refreshing global data cache from Supabase...
+
+╔═══════════════════════════════════════════════════════════════╗
+║                 🎰 LOTTO PATTERNS SERVER                      ║
+╠═══════════════════════════════════════════════════════════════╣
+║                                                               ║
+║  🌐 Dashboard:     http://localhost:3000/                    ║
+║  🔌 API Proxy:     http://localhost:3000/api/                ║
+║  📊 Status:        http://localhost:3000/status              ║
+║                                                               ║
+╠═══════════════════════════════════════════════════════════════╣
+║  ⚙️  AUTO-REFRESH SETTINGS                                    ║
+╠═══════════════════════════════════════════════════════════════╣
+║  Interval: 60 minutes                                 ║
+║  Analysis: Enabled                                            ║
+╠═══════════════════════════════════════════════════════════════╣
+║  🛠️  ENVIRONMENT VARIABLES                                    ║
+╠═══════════════════════════════════════════════════════════════╣
+║  PORT=3000              - Server port                         ║
+║  REFRESH_INTERVAL=60    - Minutes between refreshes (0=off)   ║
+║  RUN_ANALYSIS=true      - Run analysis after scrape           ║
+╠═══════════════════════════════════════════════════════════════╣
+║  📡 MANUAL REFRESH: POST http://localhost:3000/refresh       ║
+╚═══════════════════════════════════════════════════════════════╝
+  
+🔄 Running initial data check...
+🔄 Starting data refresh (quick mode)...
+🎰 LOTTO PATTERNS - QUICK UPDATE
+==================================================
+
+📅 Checking 2 recent months: février 2026, janvier 2026
+
+📥 Fetching février 2026        ... ✅ Data cache updated with 1000 draws
+71 draws → 🕵️‍♀️ Verifying past predictions (Optimized)...
+🧠 Generating and caching prediction for 30/0
+🎯 Generating predictions (Type: 30, Day: 0)...
+⚖️ Weights: {
+  hot: 0.41,
+  due: 0.04,
+  correlation: 0.19,
+  position: 0.09,
+  balanced: 0.27
+}
+   Analyzing 15 draws...
+📝 Prediction logged to history (159 entries)
+✅ 0 new, 71 existing
+📥 Fetching janvier 2026        ... 279 draws → ✅ 0 new, 279 existing
+
+──────────────────────────────────────────────────
+📊 Quick Update: 0 new draws added
+
+✅ Refresh complete in 20.7s (0 new draws)
+🕵️‍♀️ Verifying past predictions (Optimized)...
+🕵️‍♀️ Verifying past predictions (Optimized)...
+🧠 Generating and caching prediction for 31/0
+🎯 Generating predictions (Type: 31, Day: 0)...
+🧠 Brain Learning Process Started (Type: 31)...
+🧠 Prediction for this draw: [9, 16, 32, 27, 49] matched 0/5
+⚖️ Weights: {
+  hot: 0.41,
+  due: 0.04,
+  correlation: 0.15,
+  position: 0.12,
+  balanced: 0.28
+}
+   Analyzing 16 draws...
+📝 Prediction logged to history (160 entries)
+🕵️‍♀️ Verifying past predictions (Optimized)...
+✅ Updated verified history.
+🕵️‍♀️ Verifying past predictions (Optimized)...
+🕵️‍♀️ Verifying past predictions (Optimized)...
+🕵️‍♀️ Verifying past predictions (Optimized)...
+🕵️‍♀️ Verifying past predictions (Optimized)...
+🕵️‍♀️ Verifying past predictions (Optimized)...
+🕵️‍♀️ Verifying past predictions (Optimized)...
+🕵️‍♀️ Verifying past predictions (Optimized)...
+🧠 Generating and caching prediction for 30/0
+🎯 Generating predictions (Type: 30, Day: 0)...
+⚖️ Weights: {
+  hot: 0.41,
+  due: 0.04,
+  correlation: 0.15,
+  position: 0.12,
+  balanced: 0.28
+}
+   Analyzing 15 draws...
+📝 Prediction logged to history (161 entries)
+🕵️‍♀️ Verifying past predictions (Optimized)...
+🕵️‍♀️ Verifying past predictions (Optimized)...
+🕵️‍♀️ Verifying past predictions (Optimized)...

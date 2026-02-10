@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotto Patterns - Cerveau IA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Brain Page Specific Styles */
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            overflow-y: auto; /* Allow scrolling */
+        }
+
+        .brain-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .brain-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .header-title h1 {
+            font-size: 2em;
+            background: linear-gradient(90deg, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent; /* Fallback */
+            margin: 0;
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .brain-grid {
+            display: grid;
+            grid-template-columns: 350px minmax(0, 1fr);
+            gap: 30px;
+        }
+
+        /* Prevent grid blowout */
+        main {
+            min-width: 0;
+            width: 100%;
+        }
+
+        aside {
+            /* minimal style */
+        }
+
+        /* Standard Cards */
+        .brain-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #cbd5e0;
+            font-size: 1.1em;
+        }
+
+        /* Stats Overview */
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .stat-box {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.85em;
+            color: #94a3b8;
+        }
+
+        /* Strategy Bars */
+        .strategy-item {
+            margin-bottom: 15px;
+        }
+        .strategy-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            color: #cbd5e0;
+        }
+        .progress-track {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        /* History Table */
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .history-table th {
+            text-align: left;
+            padding: 12px 15px;
+            color: #64748b;
+            font-weight: 500;
+            font-size: 0.9em;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .history-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+            color: #e2e8f0;
+            font-size: 0.95em;
+        }
+        
+        .badge {
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        .badge-success { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+        .badge-neutral { background: rgba(148, 163, 184, 0.2); color: #94a3b8; }
+
+        /* Terminal Logs */
+        .terminal {
+            background: #09090b;
+            border: 1px solid #27272a;
+            border-radius: 8px;
+            padding: 15px;
+            max-height: 250px;
+            height: auto;
+            min-height: 100px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 0.85em;
+            color: #a1a1aa;
+            white-space: pre-wrap;
+            word-break: break-word;
+            resize: vertical;
+        }
+        .log-entry { margin-bottom: 5px; border-bottom: 1px solid #18181b; padding-bottom: 4px; }
+        .log-time { color: #52525b; margin-right: 8px; }
+
+        /* Gains Simulator */
+        .bet-btn {
+            padding: 8px 12px;
+            border: 1px solid rgba(79, 172, 254, 0.3);
+            background: rgba(79, 172, 254, 0.1);
+            color: #94a3b8;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: all 0.2s;
+        }
+        .bet-btn:hover { background: rgba(79, 172, 254, 0.2); color: #fff; }
+        .bet-btn.active { background: #4facfe; color: #fff; border-color: #4facfe; }
+        
+        .gain-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: #cbd5e0;
+        }
+        .gain-value { color: #10b981; font-weight: 600; }
+
+        /* Carousel */
+        .carousel-section {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        .carousel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #cbd5e0;
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+        }
+        .carousel-header:hover { color: #fff; }
+        
+        .carousel-wrapper {
+            position: relative;
+            padding: 0 10px;
+        }
+        
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 10px 5px 20px 5px; /* Bottom padding for hover space */
+            scrollbar-width: none; /* Hide scrollbar Firefox */
+            -ms-overflow-style: none;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+        }
+        .carousel-track::-webkit-scrollbar { display: none; }
+        
+        /* Navigation Buttons */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.2s;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .carousel-btn:hover {
+            background: #4facfe;
+            border-color: #4facfe;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .carousel-btn.prev { left: -15px; }
+        .carousel-btn.next { right: -15px; }
+
+        .draw-card {
+            flex: 0 0 calc(25% - 15px);
+            min-width: 160px; /* Allow cards to shrink to fit 4 */
+            scroll-snap-align: start;
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 20px 15px; /* Slightly more padding */
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            /* Pokemon Card Effect */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .draw-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .draw-card:hover { 
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            border-color: rgba(79, 172, 254, 0.5);
+            z-index: 5;
+        }
+        .draw-card:hover::before { opacity: 1; }
+        
+        .draw-card.live { 
+            border-color: #10b981; 
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); 
+        }
+        .draw-card.live::before { background: linear-gradient(90deg, #10b981, #34d399); opacity: 1; }
+
+        .draw-card.live { border-color: #10b981; box-shadow: 0 0 10px rgba(16, 185, 129, 0.2); }
+        
+        .draw-card-name { font-weight: 600; color: #fff; margin-bottom: 5px; font-size: 0.95em; }
+        .draw-card-time { color: #64748b; font-size: 0.85em; margin-bottom: 10px; }
+        .draw-card-countdown { color: #4facfe; font-size: 0.9em; font-weight: 500; }
+        .draw-card-confidence { 
+            margin-top: 10px; 
+            padding-top: 10px; 
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.85em;
+            color: #94a3b8;
+        }
+        .confidence-value { color: #10b981; font-weight: 600; }
+
+        /* Record Book */
+        .record-book-card {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.12), rgba(245, 158, 11, 0.08));
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .record-book-card::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .record-book-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .record-book-header h3 {
+            margin: 0;
+            font-size: 1.1em;
+            color: #fbbf24;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .record-book-header .record-count {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+        }
+        .record-book-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .record-book-table th {
+            text-align: left;
+            padding: 10px 12px;
+            color: #a78b2e;
+            font-weight: 600;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid rgba(251, 191, 36, 0.15);
+        }
+        .record-book-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            color: #e2e8f0;
+            font-size: 0.9em;
+        }
+        .record-book-table tr {
+            transition: background 0.2s;
+        }
+        .record-book-table tr:hover {
+            background: rgba(251, 191, 36, 0.05);
+        }
+        .record-rank {
+            font-size: 1.3em;
+            text-align: center;
+            width: 40px;
+        }
+        .record-hits {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.95em;
+        }
+        .record-hits.hits-5 { background: rgba(251, 191, 36, 0.25); color: #fbbf24; box-shadow: 0 0 12px rgba(251, 191, 36, 0.3); }
+        .record-hits.hits-4 { background: rgba(52, 211, 153, 0.2); color: #34d399; }
+        .record-hits.hits-3 { background: rgba(79, 172, 254, 0.2); color: #4facfe; }
+        .record-hits.hits-2 { background: rgba(168, 85, 247, 0.2); color: #a855f7; }
+        .record-hits.hits-1 { background: rgba(148, 163, 184, 0.15); color: #94a3b8; }
+        .record-hits.hits-0 { background: rgba(148, 163, 184, 0.1); color: #64748b; }
+        .record-nums {
+            font-family: 'Inter', monospace;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        .record-nums .hit { color: #4ade80; font-weight: 700; text-shadow: 0 0 6px rgba(74, 222, 128, 0.4); }
+        .record-empty {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="brain-container">
+    <!-- Header -->
+    <header class="brain-header">
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <a href="/" class="back-btn">← Retour</a>
+            <div class="header-title">
+                <h1>Cerveau IA & Performance</h1>
+                <div style="font-size: 0.9em; color: #64748b; margin-top: 5px;">Moteur d'apprentissage prédictif v1.0</div>
+            </div>
+        </div>
+        <div>
+            <span class="badge badge-success" style="font-size: 0.9em;">🟢 En ligne</span>
+            <span style="color: #64748b; margin-left: 10px; font-size: 0.9em;" id="lastUpdate">Dernière MAJ: --:--</span>
+        </div>
+    </header>
+
+    <div class="brain-grid">
+        <!-- Sidebar (Left) -->
+        <aside>
+            <!-- Real Stats Summary -->
+            <div class="brain-card">
+                <div class="card-header">Performance Réelle 🎯</div>
+                <div class="stats-row">
+                    <div class="stat-box">
+                        <div class="stat-value" id="globalAccuracy">--%</div>
+                        <div class="stat-label">Précision</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="totalHits">--</div>
+                        <div class="stat-label">Hits Vérifiés</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gains Simulator -->
+            <div class="brain-card">
+                <div class="card-header">💰 Simulateur de Gains</div>
+                <div style="padding: 10px 0;">
+                    <div style="margin-bottom: 15px;">
+                        <label style="color: #94a3b8; font-size: 0.85em; display: block; margin-bottom: 8px;">Mise :</label>
+                        <div id="betButtons" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="bet-btn" data-amount="100">100</button>
+                            <button class="bet-btn active" data-amount="200">200</button>
+                            <button class="bet-btn" data-amount="500">500</button>
+                            <button class="bet-btn" data-amount="1000">1000</button>
+                            <button class="bet-btn" data-amount="2000">2000</button>
+                        </div>
+                    </div>
+                    <div id="gainsTable" style="font-size: 0.9em;">
+                        <div class="gain-row"><span>5/5 Hits</span><span id="gain5" class="gain-value">1,000,000 Fcfa</span></div>
+                        <div class="gain-row"><span>4/5 Hits</span><span id="gain4" class="gain-value">100,000 Fcfa</span></div>
+                        <div class="gain-row"><span>3/5 Hits</span><span id="gain3" class="gain-value">10,000 Fcfa</span></div>
+                        <div class="gain-row"><span>2/5 Hits</span><span id="gain2" class="gain-value">1,000 Fcfa</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strategy Weights -->
+            <div class="brain-card">
+                <div class="card-header">Stratégies Privilégiées 🧠</div>
+                <div id="strategyContainer">
+                    <div style="text-align: center; color: #64748b; padding: 20px;">Chargement...</div>
+                </div>
+            </div>
+
+            <!-- Top Training Stats -->
+            <div class="brain-card">
+                <div class="card-header">Top Entraînement 📚</div>
+                <div id="topTrainingList">
+                    <!-- JS populated -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content (Right) -->
+        <main>
+            <!-- NEXT DRAW Card (Blue) -->
+            <div id="nextDrawCard" class="brain-card" style="background: linear-gradient(135deg, rgba(79, 172, 254, 0.15), rgba(0, 242, 254, 0.1)); border: 1px solid rgba(79, 172, 254, 0.3);">
+                <div class="card-header" style="justify-content: space-between;">
+                    <span>🎯 PROCHAIN TIRAGE</span>
+                    <span id="nextDrawStatus" class="badge badge-neutral">⏳ En attente</span>
+                </div>
+                <div style="padding: 15px 0;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div>
+                            <h2 id="nextDrawName" style="margin: 0; font-size: 1.5em; color: #fff;">--</h2>
+                            <span id="nextDrawTime" style="color: #94a3b8; font-size: 0.9em;">--:--</span>
+                        </div>
+                        <div id="nextDrawCountdown" style="text-align: right;">
+                            <div style="font-size: 2em; font-weight: bold; color: #4facfe;" id="nextCountdownValue">--:--</div>
+                            <div style="font-size: 0.8em; color: #64748b;">avant le tirage</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gagnants Prediction (Blue) -->
+                    <div style="margin-bottom: 15px;">
+                        <div style="color: #4facfe; font-size: 0.85em; margin-bottom: 10px; font-weight: 600;">🏆 Gagnants (Prédiction IA) :</div>
+                        <div id="nextGagnantsNumbers" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <!-- Numbers rendered by JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Machine Prediction (Green) -->
+                    <div style="margin-bottom: 15px;">
+                        <div style="color: #10b981; font-size: 0.85em; margin-bottom: 10px; font-weight: 600;">🎰 Machine (Prédiction IA) :</div>
+                        <div id="nextMachineNumbers" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <!-- Numbers rendered by JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Hybrid Prediction (Purple - Recommended) -->
+                    <div style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(236, 72, 153, 0.1)); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 12px; padding: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <div style="color: #a855f7; font-size: 0.9em; font-weight: 600;">⭐ Hybride (Recommandé) :</div>
+                            <span id="hybridConfidence" style="background: rgba(168, 85, 247, 0.2); color: #a855f7; padding: 3px 8px; border-radius: 6px; font-size: 0.75em; font-weight: 600;">--% confiance</span>
+                        </div>
+                        <div id="nextHybridNumbers" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <!-- Numbers rendered by JS -->
+                        </div>
+                        <div id="hybridInfo" style="margin-top: 10px; font-size: 0.75em; color: #94a3b8;">
+                            Combine les patterns gagnants et machine.
+                        </div>
+                    </div>
+
+                    <!-- Alternatives Section -->
+                    <div id="alternativesContainer" style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; display: none;">
+                        <div style="font-size: 0.85em; color: #94a3b8; margin-bottom: 10px; font-weight: 600;">🔄 Autres Pistes Stat :</div>
+                        <div id="nextAlternatives" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                            <!-- Filled by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LAST RESULT Card (Purple) -->
+            <div id="lastResultCard" class="brain-card" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(236, 72, 153, 0.1)); border: 1px solid rgba(139, 92, 246, 0.3); display: none;">
+                <div class="card-header" style="justify-content: space-between;">
+                    <span>📊 DERNIER RÉSULTAT</span>
+                    <span id="lastResultScore" class="badge badge-success">--/5 Hits</span>
+                </div>
+                <div style="padding: 15px 0;">
+                    <div style="margin-bottom: 15px;">
+                        <h3 id="lastResultName" style="margin: 0 0 5px 0; font-size: 1.2em; color: #fff;">--</h3>
+                        <span id="lastResultTime" style="color: #94a3b8; font-size: 0.85em;">--</span>
+                    </div>
+                    
+                    <!-- Comparison Grid -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <!-- Gagnants Column -->
+                        <div>
+                            <div style="color: #4facfe; font-size: 0.85em; margin-bottom: 8px; font-weight: 600;">🏆 Gagnants</div>
+                            <div style="margin-bottom: 10px;">
+                                <div style="color: #64748b; font-size: 0.75em; margin-bottom: 5px;">Résultat Réel :</div>
+                                <div id="lastRealGagnants" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                                    <!-- Real numbers -->
+                                </div>
+                            </div>
+                            <div>
+                                <div style="color: #64748b; font-size: 0.75em; margin-bottom: 5px;">Prédiction IA :</div>
+                                <div id="lastPredGagnants" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                                    <!-- Predicted numbers -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Machine Column -->
+                        <div>
+                            <div style="color: #10b981; font-size: 0.85em; margin-bottom: 8px; font-weight: 600;">🎰 Machine</div>
+                            <div style="margin-bottom: 10px;">
+                                <div style="color: #64748b; font-size: 0.75em; margin-bottom: 5px;">Résultat Réel :</div>
+                                <div id="lastRealMachine" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                                    <!-- Real numbers -->
+                                </div>
+                            </div>
+                            <div>
+                                <div style="color: #64748b; font-size: 0.75em; margin-bottom: 5px;">Prédiction IA :</div>
+                                <div id="lastPredMachine" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                                    <!-- Predicted numbers -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Record Book IA -->
+            <div class="brain-card record-book-card">
+                <div class="record-book-header">
+                    <h3>🏆 Record Book IA</h3>
+                    <span class="record-count" id="recordCount">Top 5</span>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="record-book-table">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">#</th>
+                                <th>Date</th>
+                                <th>Type de Jeu</th>
+                                <th>Résultat IA</th>
+                                <th>Résultat Réel</th>
+                                <th style="text-align: center;">Hits</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recordBookBody">
+                            <tr><td colspan="6" class="record-empty">Chargement des records...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Upcoming Draws Carousel -->
+            <div class="carousel-section">
+                <div class="carousel-header" onclick="toggleCarousel()" title="Cliquez pour réduire/agrandir">
+                    <span>📅 Prochains Tirages</span>
+                    <span id="carouselToggleIcon" style="font-size: 0.85em; color: #64748b; transition: transform 0.3s;">▼</span>
+                </div>
+                <div id="carouselWrapper" class="carousel-wrapper">
+                    <div class="carousel-btn prev" onclick="scrollCarousel(-1)">❮</div>
+                    <div id="carouselTrack" class="carousel-track">
+                        <!-- JS populated -->
+                        <div class="draw-card" style="opacity: 0.5;">
+                            <div class="draw-card-name">Chargement...</div>
+                        </div>
+                    </div>
+                    <div class="carousel-btn next" onclick="scrollCarousel(1)">❯</div>
+                </div>
+            </div>
+
+            <!-- Tirages Terminés Aujourd'hui (Schedule-based) -->
+            <div class="brain-card" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.05)); border: 1px solid rgba(139, 92, 246, 0.2);">
+                <div class="card-header">
+                    📅 Tirages Terminés Aujourd'hui
+                    <button onclick="loadCompletedDraws()" style="background:none; border:none; cursor:pointer; font-size:1.2em;">🔄</button>
+                </div>
+                <div id="completedDrawsContainer" style="max-height: 250px; overflow-y: auto;">
+                    <div style="text-align: center; color: #64748b; padding: 20px;">Chargement...</div>
+                </div>
+            </div>
+
+
+
+
+            <!-- Logs -->
+            <div class="brain-card" style="border: none; background: transparent; padding: 0;">
+                <div class="card-header" style="margin-bottom: 10px;">Journal d'Apprentissage</div>
+                <div class="terminal" id="brainLogs">
+                    <div class="log-entry">Initialisation du système...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script src="brain.js"></script>
+</body>
+</html>

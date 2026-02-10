@@ -1,0 +1,501 @@
+{
+  "status": "0",
+  "drawsResultsWeekly": [
+    {
+      "startDate": "02/02/2026",
+      "endDate": "08/02/2026",
+      "drawResultsDaily": [
+        {
+          "date": "samedi 07/02",
+          "drawResults": {
+            "nightDraws": [
+              {
+                "drawName": "Special Weekend 1h",
+                "winningNumbers": "12 - 57 - 90 - 07 - 73",
+                "machineNumbers": "77 - 47 - 69 - 17 - 21"
+              },
+              {
+                "drawName": "Special Weekend 3h",
+                "winningNumbers": "39 - 88 - 55 - 03 - 78",
+                "machineNumbers": "01 - 86 - 70 - 16 - 30"
+              },
+              {
+                "drawName": "Digital Reveil 7h",
+                "winningNumbers": "81 - 86 - 55 - 41 - 32",
+                "machineNumbers": "42 - 24 - 87 - 10 - 27"
+              },
+              {
+                "drawName": "Digital Reveil 8h",
+                "winningNumbers": "68 - 90 - 48 - 83 - 39",
+                "machineNumbers": "87 - 19 - 49 - 85 - 20"
+              },
+              {
+                "drawName": "-",
+                "winningNumbers": ". - . - . - . - .",
+                "machineNumbers": ". - . - . - . - ."
+              }
+            ],
+            "standardDraws": [
+              {
+                "drawName": "Soutra",
+                "winningNumbers": "66 - 24 - 16 - 42 - 74",
+                "machineNumbers": "83 - 60 - 82 - 20 - 48"
+              },
+              {
+                "drawName": "Diamant",
+                "winningNumbers": "09 - 44 - 77 - 81 - 07",
+                "machineNumbers": "42 - 18 - 15 - 46 - 30"
+              },
+              {
+                "drawName": "-",
+                "winningNumbers": ". - . - . - . - .",
+                "machineNumbers": ". - . - . - . - ."
+              },
+              {
+                "drawName": "-",
+                "winningNumbers": ". - . - . - . - .",
+                "machineNumbers": ". - . - . - . - ."
+              }
+            ]
+          }
+        },
+        {
+          "date": "vendredi 06/02",
+          "drawResults": {
+            "nightDraws": [
+              {
+                "drawName": "Digital Reveil 7h",
+                "winningNumbers": "82 - 01 - 80 - 11 - 78",
+                "machineNumbers": "24 - 57 - 59 - 29 - 36"
+              },
+              {
+                "drawName": "Digital Reveil 8h",
+                "winningNumbers": "30 - 10 - 22 - 04 - 31",
+                "machineNumbers": "45 - 07 - 09 - 57 - 51"
+              },
+              {
+                "drawName": "Digital 21h",
+                "winningNumbers": "41 - 88 - 34 - 30 - 09",
+                "machineNumbers": "80 - 55 - 64 - 42 - 28"
+              },
+              {
+                "drawName": "Digital 22h",
+                "winningNumbers": "31 - 52 - 39 - 44 - 90",
+                "machineNumbers": "08 - 51 - 34 - 76 - 45"
+              },
+              {
+                "drawName": "Digital 23h",
+                "winningNumbers": "49 - 26 - 22 - 69 - 52",
+                "machineNumbers": "42 - 45 - 06 - 07 - 50"
+              }
+            ],
+            "standardDraws": [
+              {
+                "drawName": "Cash",
+                "winningNumbers": "88 - 28 - 14 - 25 - 50",
+                "machineNumbers": "87 - 78 - 19 - 57 - 81"
+              },
+              {
+                "drawName": "Solution",
+                "winningNumbers": "07 - 18 - 75 - 35 - 74",
+                "machineNumbers": "30 - 56 - 27 - 43 - 83"
+              },
+              {
+                "drawName": "Wari",
+                "winningNumbers": "32 - 78 - 87 - 54 - 07",
+                "machineNumbers": "12 - 50 - 47 - 18 - 59"
+              },
+              {
+                "drawName": "Friday Bonanza",
+                "winningNumbers": "87 - 22 - 07 - 16 - 41",
+                "machineNumbers": ". - . - . - . - ."
+              }
+            ]
+          }
+        },
+        {
+          "date": "jeudi 05/02",
+          "drawResults": {
+            "nightDraws": [
+              {
+                "drawName": "Digital Reveil 7h",
+                "winningNumbers": "53 - 48 - 86 - 44 - 32",
+                "machineNumbers": "49 - 05 - 13 - 20 - 74"
+              },
+              {
+                "drawName": "Digital Reveil 8h",
+                "winningNumbers": "58 - 71 - 25 - 15 - 84",
+                "machineNumbers": "78 - 68 - 35 - 55 - 38"
+              },
+              {
+                "drawName": "Digital 21h",
+                "winningNumbers": "18 - 15 - 82 - 24 - 14",
+                "machineNumbers": "39 - 10 - 55 - 57 - 86"
+              },
+              {
+                "drawName": "Digital 22h",
+                "winningNumbers": "16 - 39 - 14 - 05 - 51",
+                "machineNumbers": "38 - 17 - 13 - 10 - 52"
+              },
+              {
+                "drawName": "Digital 23h",
+                "winningNumbers": "10 - 20 - 54 - 26 - 62",
+                "machineNumbers": "24 - 53 - 02 - 69 - 68"
+              }
+            ],
+            "standardDraws": [
+              {
+                "drawName": "Kado",
+                "winningNumbers": "13 - 79 - 28 - 31 - 05",
+                "machineNumbers": "04 - 37 - 73 - 85 - 26"
+              },
+              {
+                "drawName": "Privilege",
+                "winningNumbers": "80 - 79 - 69 - 50 - 30",
+                "machineNumbers": "28 - 06 - 84 - 75 - 67"
+              },
+              {
+                "drawName": "Monni",
+                "winningNumbers": "69 - 07 - 46 - 18 - 32",
+                "machineNumbers": "79 - 04 - 13 - 03 - 05"
+              },
+              {
+                "drawName": "Fortune Thursday",
+                "winningNumbers": "47 - 05 - 45 - 66 - 15",
+                "machineNumbers": ". - . - . - . - ."
+              }
+            ]
+          }
+        },
+        {
+          "date": "mercredi 04/02",
+          "drawResults": {
+            "nightDraws": [
+              {
+                "drawName": "Digital Reveil 7h",
+                "winningNumbers": "76 - 35 - 02 - 45 - 25",
+                "machineNumbers": "12 - 05 - 73 - 37 - 36"
+              },
+              {
+                "drawName": "Digital Reveil 8h",
+                "winningNumbers": "24 - 43 - 90 - 79 - 45",
+                "machineNumbers": "15 - 14 - 77 - 20 - 57"
+              },
+              {
+                "drawName": "Digital 21h",
+                "winningNumbers": "26 - 89 - 22 - 13 - 44",
+                "machineNumbers": "83 - 38 - 09 - 46 - 58"
+              },
+              {
+                "drawName": "Digital 22h",
+                "winningNumbers": "15 - 31 - 02 - 50 - 05",
+                "machineNumbers": "14 - 82 - 47 - 52 - 36"
+              },
+              {
+                "drawName": "Digital 23h",
+                "winningNumbers": "04 - 66 - 84 - 56 - 73",
+                "machineNumbers": "06 - 25 - 27 - 14 - 13"
+              }
+            ],
+            "standardDraws": [
+              {
+                "drawName": "Premiere Heure",
+                "winningNumbers": "64 - 03 - 14 - 33 - 32",
+                "machineNumbers": "73 - 31 - 28 - 04 - 52"
+              },
+              {
+                "drawName": "Fortune",
+                "winningNumbers": "55 - 06 - 49 - 21 - 80",
+                "machineNumbers": "41 - 65 - 01 - 28 - 73"
+              },
+              {
+                "drawName": "Baraka",
+                "winningNumbers": "37 - 16 - 50 - 36 - 85",
+                "machineNumbers": "39 - 68 - 82 - 44 - 15"
+              },
+              {
+                "drawName": "Midweek",
+                "winningNumbers": "68 - 51 - 59 - 86 - 13",
+                "machineNumbers": ". - . - . - . - ."
+              }
+            ]
+          }
+        },
+        {
+          "date": "mardi 03/02",
+          "drawResults": {
+            "nightDraws": [
+              {
+                "drawName": "Digital Reveil 7h",
+                "winningNumbers": "12 - 25 - 18 - 59 - 80",
+                "machineNumbers": "86 - 15 - 26 - 21 - 52"
+              },
+              {
+                "drawName": "Digital Reveil 8h",
+                "winningNumbers": "29 - 19 - 04 - 07 - 57",
+                "machineNumbers": "70 - 47 - 38 - 84 - 71"
+              },
+              {
+                "drawName": "Digital 21h",
+                "winningNumbers": "20 - 75 - 49 - 07 - 58",
+                "machineNumbers": "06 - 48 - 70 - 54 - 15"
+              },
+              {
+                "drawName": "Digital 22h",
+                "winningNumbers": "18 - 78 - 70 - 72 - 08",
+                "machineNumbers": "27 - 17 - 21 - 79 - 67"
+              },
+              {
+                "drawName": "Digital 23h",
+                "winningNumbers": "26 - 80 - 38 - 77 - 13",
+                "machineNumbers": "46 - 86 - 66 - 33 - 30"
+              }
+            ],
+            "standardDraws": [
+              {
+                "drawName": "La Matinale",
+                "winningNumbers": "78 - 89 - 63 - 74 - 38",
+                "machineNumbers": "36 - 20 - 03 - 37 - 42"
+              },
+              {
+                "drawName": "Emergence",
+                "winningNumbers": "33 - 69 - 46 - 53 - 20",
+                "machineNumbers": "67 - 35 - 79 - 05 - 42"
+              },
+              {
+                "drawName": "Sika",
+                "winningNumbers": "65 - 45 - 07 - 46 - 87",
+                "machineNumbers": "16 - 26 - 05 - 60 - 38"
+              },
+              {
+                "drawName": "Lucky Tuesday",
+                "winningNumbers": "23 - 75 - 63 - 43 - 37",
+                "machineNumbers": ". - . - . - . - ."
+              }
+            ]
+          }
+        },
+        {
+          "date": "lundi 02/02",
+          "drawResults": {
+            "nightDraws": [
+              {
+                "drawName": "Digital Reveil 7h",
+                "winningNumbers": "79 - 04 - 34 - 15 - 82",
+                "machineNumbers": "43 - 23 - 10 - 33 - 57"
+              },
+              {
+                "drawName": "Digital Reveil 8h",
+                "winningNumbers": "68 - 78 - 10 - 66 - 12",
+                "machineNumbers": "15 - 84 - 18 - 41 - 57"
+              },
+              {
+                "drawName": "Digital 21h",
+                "winningNumbers": "13 - 58 - 68 - 39 - 03",
+                "machineNumbers": "18 - 19 - 63 - 48 - 23"
+              },
+              {
+                "drawName": "Digital 22h",
+                "winningNumbers": "09 - 83 - 11 - 06 - 18",
+                "machineNumbers": "85 - 70 - 20 - 53 - 45"
+              },
+              {
+                "drawName": "Digital 23h",
+                "winningNumbers": "08 - 69 - 46 - 65 - 10",
+                "machineNumbers": "19 - 60 - 11 - 37 - 54"
+              }
+            ],
+            "standardDraws": [
+              {
+                "drawName": "Reveil",
+                "winningNumbers": "05 - 49 - 16 - 15 - 18",
+                "machineNumbers": "77 - 69 - 47 - 24 - 50"
+              },
+              {
+                "drawName": "Etoile",
+                "winningNumbers": "20 - 28 - 35 - 66 - 40",
+                "machineNumbers": "25 - 30 - 24 - 55 - 68"
+              },
+              {
+                "drawName": "Akwaba",
+                "winningNumbers": "38 - 83 - 78 - 64 - 82",
+                "machineNumbers": "74 - 87 - 88 - 86 - 44"
+              },
+              {
+                "drawName": "Monday Special",
+                "winningNumbers": "43 - 51 - 25 - 04 - 35",
+                "machineNumbers": ". - . - . - . - ."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "startDate": "01/02/2026",
+      "endDate": "01/02/2026",
+      "drawResultsDaily": [
+        {
+          "date": "dimanche 01/02",
+          "drawResults": {
+            "nightDraws": [
+              {
+                "drawName": "Special Weekend 1h",
+                "winningNumbers": "05 - 04 - 06 - 56 - 64",
+                "machineNumbers": "37 - 84 - 45 - 77 - 46"
+              },
+              {
+                "drawName": "Special Weekend 3h",
+                "winningNumbers": "11 - 71 - 22 - 33 - 81",
+                "machineNumbers": "89 - 36 - 38 - 12 - 04"
+              },
+              {
+                "drawName": "Digital Reveil 7h",
+                "winningNumbers": "74 - 66 - 54 - 27 - 60",
+                "machineNumbers": "29 - 59 - 78 - 40 - 39"
+              },
+              {
+                "drawName": "Digital Reveil 8h",
+                "winningNumbers": "90 - 31 - 27 - 44 - 53",
+                "machineNumbers": "83 - 48 - 51 - 16 - 79"
+              },
+              {
+                "drawName": "Digital 21h",
+                "winningNumbers": "71 - 44 - 80 - 58 - 66",
+                "machineNumbers": "64 - 68 - 65 - 08 - 34"
+              }
+            ],
+            "standardDraws": [
+              {
+                "drawName": "Benediction",
+                "winningNumbers": "25 - 03 - 33 - 70 - 13",
+                "machineNumbers": "14 - 06 - 31 - 78 - 12"
+              },
+              {
+                "drawName": "Prestige",
+                "winningNumbers": "63 - 55 - 80 - 77 - 58",
+                "machineNumbers": "82 - 18 - 40 - 05 - 36"
+              },
+              {
+                "drawName": "Awale",
+                "winningNumbers": "29 - 11 - 19 - 15 - 03",
+                "machineNumbers": "33 - 79 - 46 - 01 - 10"
+              },
+              {
+                "drawName": "Espoir",
+                "winningNumbers": "74 - 69 - 31 - 15 - 26",
+                "machineNumbers": "39 - 65 - 01 - 76 - 54"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "monthYears": [
+    "février 2026",
+    "janvier 2026",
+    "décembre 2025",
+    "novembre 2025",
+    "octobre 2025",
+    "septembre 2025",
+    "août 2025",
+    "juillet 2025",
+    "juin 2025",
+    "mai 2025",
+    "avril 2025",
+    "mars 2025",
+    "février 2025",
+    "janvier 2025",
+    "décembre 2024",
+    "novembre 2024",
+    "octobre 2024",
+    "septembre 2024",
+    "août 2024",
+    "juillet 2024",
+    "juin 2024",
+    "mai 2024",
+    "avril 2024",
+    "mars 2024",
+    "février 2024",
+    "janvier 2024",
+    "décembre 2023",
+    "novembre 2023",
+    "octobre 2023",
+    "septembre 2023",
+    "août 2023",
+    "juillet 2023",
+    "juin 2023",
+    "mai 2023",
+    "avril 2023",
+    "mars 2023",
+    "février 2023",
+    "janvier 2023",
+    "décembre 2022",
+    "novembre 2022",
+    "octobre 2022",
+    "septembre 2022",
+    "août 2022",
+    "juillet 2022",
+    "juin 2022",
+    "mai 2022",
+    "avril 2022",
+    "mars 2022",
+    "février 2022",
+    "janvier 2022",
+    "décembre 2021",
+    "novembre 2021",
+    "octobre 2021",
+    "septembre 2021",
+    "août 2021",
+    "juillet 2021",
+    "juin 2021",
+    "mai 2021",
+    "avril 2021",
+    "mars 2021",
+    "février 2021",
+    "janvier 2021",
+    "décembre 2020",
+    "novembre 2020",
+    "octobre 2020"
+  ],
+  "drawTypes": [
+    "Reveil",
+    "Etoile",
+    "Akwaba",
+    "Monday Special",
+    "La Matinale",
+    "Emergence",
+    "Sika",
+    "Lucky Tuesday",
+    "Premiere Heure",
+    "Fortune",
+    "Baraka",
+    "Midweek",
+    "Kado",
+    "Privilege",
+    "Monni",
+    "Fortune Thursday",
+    "Cash",
+    "Solution",
+    "Wari",
+    "Friday Bonanza",
+    "Soutra",
+    "Diamant",
+    "Moaye",
+    "National",
+    "Benediction",
+    "Prestige",
+    "Awale",
+    "Espoir",
+    "Day Off",
+    "Digital 21h",
+    "Digital Reveil 7h",
+    "Digital 23h",
+    "Special Weekend 1h",
+    "Special Weekend 3h",
+    "Digital Reveil 8h",
+    "Digital 22h"
+  ],
+  "success": true
+}

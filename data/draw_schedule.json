@@ -1,0 +1,69 @@
+{
+  "digitalDraws": [
+    { "name": "Digital Reveil 7h", "hour": 6, "minute": 58, "days": [0,1,2,3,4,5,6] },
+    { "name": "Digital Reveil 8h", "hour": 7, "minute": 58, "days": [0,1,2,3,4,5,6] },
+    { "name": "Digital 21h", "hour": 20, "minute": 58, "days": [0,1,2,3,4,5,6] },
+    { "name": "Digital 22h", "hour": 21, "minute": 58, "days": [0,1,2,3,4,5,6] },
+    { "name": "Digital 23h", "hour": 22, "minute": 58, "days": [0,1,2,3,4,5,6] }
+  ],
+  "weeklySchedule": {
+    "0": {
+      "slots": [
+        { "hour": 0, "minute": 55, "name": "Special Weekend 1h" },
+        { "hour": 2, "minute": 55, "name": "Special Weekend 3h" },
+        { "hour": 9, "minute": 55, "name": "Benediction" },
+        { "hour": 12, "minute": 55, "name": "Prestige" },
+        { "hour": 15, "minute": 55, "name": "Awale" },
+        { "hour": 18, "minute": 55, "name": "Espoir" }
+      ]
+    },
+    "1": {
+      "slots": [
+        { "hour": 9, "minute": 55, "name": "Akwaba" },
+        { "hour": 12, "minute": 55, "name": "Danse" },
+        { "hour": 15, "minute": 55, "name": "Kado" }
+      ]
+    },
+    "2": {
+      "slots": [
+        { "hour": 9, "minute": 55, "name": "Reveil" },
+        { "hour": 12, "minute": 55, "name": "Bonheur" },
+        { "hour": 15, "minute": 55, "name": "Etoile" }
+      ]
+    },
+    "3": {
+      "slots": [
+        { "hour": 12, "minute": 55, "name": "Prestige" },
+        { "hour": 15, "minute": 55, "name": "Awale" },
+        { "hour": 18, "minute": 55, "name": "Espoir" }
+      ]
+    },
+    "4": {
+      "slots": [
+        { "hour": 12, "minute": 55, "name": "Diamant" },
+        { "hour": 15, "minute": 55, "name": "Moaye" },
+        { "hour": 18, "minute": 55, "name": "National" }
+      ]
+    },
+    "5": {
+      "slots": [
+        { "hour": 12, "minute": 55, "name": "Cash" },
+        { "hour": 15, "minute": 55, "name": "Solution" },
+        { "hour": 18, "minute": 55, "name": "Wari" },
+        { "hour": 21, "minute": 0, "name": "Friday Bonanza" }
+      ]
+    },
+    "6": {
+      "slots": [
+        { "hour": 12, "minute": 55, "name": "Bonus" },
+        { "hour": 15, "minute": 55, "name": "Fortune" },
+        { "hour": 18, "minute": 55, "name": "Victoire" }
+      ]
+    }
+  },
+  "metadata": {
+    "timezone": "Africa/Abidjan",
+    "source": "lotobonheur.ci",
+    "lastUpdated": "2026-02-08"
+  }
+}

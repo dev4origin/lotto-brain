@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎰 Lotto Patterns - Dashboard</title>
+  <meta name="description" content="Analyse des patterns du Lotto Ivoirien - Statistiques et tendances">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <span class="logo-icon">🎰</span>
+          <h1>Lotto Patterns</h1>
+          <span class="badge">Côte d'Ivoire</span>
+          <span id="refreshTimer" class="status-timer" title="Prochaine actualisation">⏳ --:--</span>
+        </div>
+        <div class="header-stats">
+          <div class="stat-mini">
+            <span class="stat-value" id="totalDraws">-</span>
+            <span class="stat-label">Tirages</span>
+          </div>
+          <div class="stat-mini">
+            <span class="stat-value" id="totalTypes">-</span>
+            <span class="stat-label">Types</span>
+          </div>
+          <div class="stat-mini">
+            <span class="stat-value" id="dateRange">-</span>
+            <span class="stat-label">Période</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Filters & Controls -->
+      <section class="filters">
+        <div class="filter-group">
+          <label for="drawTypeSelect">Type de tirage</label>
+          <select id="drawTypeSelect">
+            <option value="all">Tous les tirages</option>
+          </select>
+        </div>
+        <div class="refresh-controls">
+          <a href="brain.html" class="brain-btn" id="showBrain" title="Voir l'état de l'IA" style="text-decoration:none; display:flex; align-items:center; gap:8px;">
+            <span class="brain-icon">🧠</span>
+            <span class="brain-text">Cerveau IA</span>
+          </a>
+          <button class="refresh-btn" id="refreshData" title="Récupérer les derniers résultats">
+            <span class="refresh-icon">🔄</span>
+            <span class="refresh-text">Actualiser</span>
+          </button>
+          <div class="refresh-status" id="refreshStatus">
+            <span class="status-indicator" id="statusIndicator"></span>
+            <span class="status-text" id="statusText">En attente...</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Cards -->
+      <section class="stats-grid">
+        <div class="stat-card hot">
+          <div class="stat-header">
+            <span class="stat-icon">🔥</span>
+            <h3>Numéros Chauds</h3>
+          </div>
+          <div class="stat-content">
+            <div class="number-pills" id="hotNumbers">
+              <div class="loading-skeleton"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-card cold">
+          <div class="stat-header">
+            <span class="stat-icon">❄️</span>
+            <h3>Numéros Froids</h3>
+          </div>
+          <div class="stat-content">
+            <div class="number-pills" id="coldNumbers">
+              <div class="loading-skeleton"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-card overdue">
+          <div class="stat-header">
+            <span class="stat-icon">⏰</span>
+            <h3>Numéros en Retard</h3>
+          </div>
+          <div class="stat-content">
+            <div class="number-pills" id="overdueNumbers">
+              <div class="loading-skeleton"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-card pairs">
+          <div class="stat-header">
+            <span class="stat-icon">👥</span>
+            <h3>Paires Fréquentes</h3>
+          </div>
+          <div class="stat-content">
+            <div class="pairs-list" id="frequentPairs">
+              <div class="loading-skeleton"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Charts Section -->
+      <section class="charts-section">
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3>🎯 Distribution Pair/Impair</h3>
+          </div>
+          <div class="chart-content">
+            <div class="distribution-bars" id="oddEvenChart">
+              <div class="loading-skeleton"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3>➕ Plages de Sommes</h3>
+          </div>
+          <div class="chart-content">
+            <div class="sum-stats" id="sumStats">
+              <div class="loading-skeleton"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3>🔢 Patterns Consécutifs</h3>
+          </div>
+          <div class="chart-content">
+            <div class="consecutive-stats" id="consecutiveStats">
+              <div class="loading-skeleton"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Predictions Section -->
+      <section class="ai-predictions-section">
+        <div class="ai-predictions-card">
+          <div class="ai-predictions-header">
+            <div class="ai-header-title">
+              <span class="ai-icon">🧠</span>
+              <div>
+                <h3>Prédictions IA Avancées <span class="badge" style="background:#fb923c; color:white; font-size:0.7em; vertical-align:middle;">+ Statistical & Finales</span></h3>
+                <p>Combinaison de 9 algorithmes: Cycles, Fréquence, Position, Corrélations, Décades, Statistique, Finales, Réseau de Neurones, Tactical Neighbors</p>
+              </div>
+            </div>
+            <button class="ai-refresh-btn" id="refreshPredictions">
+              <span class="refresh-icon">🔄</span> Actualiser
+            </button>
+          </div>
+          
+          <!-- Main Prediction -->
+          <div class="main-prediction" id="mainPrediction">
+            <div class="prediction-loading">
+              <div class="loading-spinner"></div>
+              <p>Génération des prédictions...</p>
+            </div>
+          </div>
+          
+          <!-- Alternative Strategies -->
+          <div class="alternative-strategies">
+            <h4>📋 Stratégies Alternatives</h4>
+            <div class="alternatives-grid" id="alternativesGrid">
+              <div class="loading-skeleton"></div>
+            </div>
+          </div>
+          
+          <!-- Top Candidates -->
+          <div class="top-candidates">
+            <h4>📊 Top 10 Numéros par Score</h4>
+            <div class="candidates-list" id="candidatesList">
+              <div class="loading-skeleton"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Alerts Section -->
+      <section class="alerts-section">
+        <div class="alerts-card">
+          <div class="alerts-header">
+            <h3>⏰ Numéros En Retard (Alertes)</h3>
+            <p>Ces numéros sont en retard par rapport à leur cycle habituel</p>
+          </div>
+          <div class="alerts-list" id="alertsList">
+            <div class="loading-skeleton"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Evaluator -->
+      <section class="evaluator-section">
+        <div class="evaluator-card">
+          <div class="evaluator-header">
+            <h3>🧮 Évaluateur de Combinaison</h3>
+            <p>Testez vos 5 numéros porte-bonheur contre l'IA</p>
+          </div>
+          
+          <div class="evaluator-container">
+            <div class="evaluator-input-area">
+              <div class="number-inputs">
+                <input type="number" min="1" max="90" class="eval-input" placeholder="-" id="n1">
+                <input type="number" min="1" max="90" class="eval-input" placeholder="-" id="n2">
+                <input type="number" min="1" max="90" class="eval-input" placeholder="-" id="n3">
+                <input type="number" min="1" max="90" class="eval-input" placeholder="-" id="n4">
+                <input type="number" min="1" max="90" class="eval-input" placeholder="-" id="n5">
+              </div>
+              <button id="evaluateBtn" class="evaluate-btn">
+                <span>⚡</span> Analyser
+              </button>
+            </div>
+            
+            <div id="evaluationResult" class="evaluation-result" style="display: none;">
+              <!-- Dynamic Content -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Frequency Heatmap -->
+      <section class="heatmap-section">
+        <div class="heatmap-card">
+          <div class="heatmap-header">
+            <h3>📊 Fréquence des Numéros (1-90)</h3>
+            <p id="heatmapInfo">Plus la couleur est intense, plus le numéro est fréquent</p>
+          </div>
+          <div class="heatmap-grid" id="frequencyHeatmap">
+            <div class="loading-skeleton"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Day of Week Analysis -->
+      <section class="day-analysis">
+        <div class="day-card">
+          <div class="day-header">
+            <h3>📅 Favoris par Jour</h3>
+          </div>
+          <div class="day-grid" id="dayOfWeekStats">
+            <div class="loading-skeleton"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent Draws -->
+      <section class="recent-draws">
+        <div class="recent-header">
+          <h3>🕐 Derniers Tirages</h3>
+        </div>
+        <div class="draws-table-container">
+          <table class="draws-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Numéros Gagnants</th>
+                <th>Numéros Machine</th>
+              </tr>
+            </thead>
+            <tbody id="recentDrawsBody">
+              <tr><td colspan="4" class="loading-skeleton"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>🎰 Lotto Patterns - Analyse des résultats du Lotto Ivoirien</p>
+      <p class="disclaimer">⚠️ À but éducatif uniquement. Les résultats passés ne garantissent pas les résultats futurs.</p>
+    </footer>
+  </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+  <script src="timer.js"></script>
+</body>
+</html>

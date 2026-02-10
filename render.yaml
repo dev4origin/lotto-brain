@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: lotto-patterns-brain
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      - key: REFRESH_INTERVAL
+        value: 60
+      - key: RUN_ANALYSIS
+        value: true
